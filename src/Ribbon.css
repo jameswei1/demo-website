@@ -1,0 +1,6 @@
+.flex-container {
+    display: flex;
+    justify-content: flex-end;
+    background-color: DodgerBlue;
+    height: 100px;
+}
