@@ -11,7 +11,7 @@ import { useState } from 'react';
 
 export default function PayeeList({ payees }) {
     const [count, setCount] = useState(0);
-    const [checked, setChecked] = useState([0]);
+    const [checked, setChecked] = useState([]);
 
     function handleToggle() {
         console.log("Toggled")

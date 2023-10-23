@@ -30,32 +30,21 @@ export default function MainPage() {
   }, [payees])
 
   useEffect(() => {
-    console.log("alsdkf;laskf")
     if (searchQuery) {
       let data = payees
       let result = data.filter((d) => d.toLowerCase().includes(searchQuery));
-      console.log("here " + searchQuery)
       setDisplayedPayees(result)
-      // return result
     } else {
       setDisplayedPayees(payees)
     }
-    // let copyPayees = payees
-    // let result = copyPayees.filter(findPayee)
-    // setPayees(result)
   }, [searchQuery])
 
   return (
     <Container maxWidth="md">
-      <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }}>
+      <Box sx={{ bgcolor: '#cfe8fc', height: '100vh', border: 'solid'}}>
         <SearchBar setSearchQuery={setSearchQuery}/>
         <PayeeList payees={displayedPayees}/>
         
-        {/* <div>
-          {payees.map(p => (
-            <div key={p}>{p}</div>
-          ))}
-        </div> */}
       </Box>
     </Container>
   );
