@@ -17,14 +17,12 @@ export default function PayeeList({ payees }) {
         console.log("Toggled")
     }
 
-    payees = ["asfd", "sdfg", "sdfg"]
-
     return (
-        <List sx={{ width: '100%', maxWidth: 360, bgcolor: '#cfe8fc' }}>
-            {payees.map(p => {
-                <div key={p}>{p}</div>
-            })}
-        </List>
+        <div className='center'>
+          {payees.map(p => (
+            <div key={p}>{p}</div>
+          ))}
+        </div>
     )
 }
 
