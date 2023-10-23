@@ -5,20 +5,20 @@ import MainPage from './mainPage';
 
 function App() {
   return (
-    <body>
-        <header>
-          <Ribbon/>
-          
-          <div className="logo">
-            <img src={logo} alt="logo"/>
-          </div>
-          
-        </header>
+    <>
+      <header>
+        <Ribbon/>
+        
+        <div className="logo">
+          <img src={logo} alt="logo"/>
+        </div>
+        
+      </header>
 
-        <main>
-          <MainPage/>
-        </main> 
-    </body>
+      <main>
+        <MainPage/>
+      </main> 
+    </>
   );
 }
 

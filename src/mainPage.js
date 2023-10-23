@@ -21,7 +21,7 @@ export default function MainPage() {
     axios
     .get('https://pokeapi.co/api/v2/pokemon')
     .then((res) => {
-      setPayees(res.data.results.map((p) => p))
+      setPayees(res.data.results.map((p) => p.name))
     })
   }, [])
 
