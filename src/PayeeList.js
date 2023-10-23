@@ -6,8 +6,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
 import { useState } from 'react';
+import Payee from './Payee';
 
 export default function PayeeList({ payees }) {
     const [count, setCount] = useState(0);
@@ -17,12 +17,18 @@ export default function PayeeList({ payees }) {
         console.log("Toggled")
     }
 
+    let countCopy = count
+
     return (
-        <div className='center'>
-          {payees.map(p => (
-            <div key={p}>{p}</div>
-          ))}
-        </div>
+        <List sx={{ width: '100%', bgcolor: '#cfe8fc' }}>
+            {payees.map(p => (
+                <Payee payee={p}/>
+            // <div key={p}>{p}</div>
+            ))}
+        </List>
+        // <div className='center'>
+
+        // </div>
     )
 }
 
