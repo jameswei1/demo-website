@@ -11,7 +11,7 @@ export default function SearchBar({ setSearchQuery }) {
                 onInput={(e) => {
                     setSearchQuery(e.target.value);
                 }}
-                label="Enter a payee name"
+                label="Search payees..."
                 variant="outlined"
                 placeholder="Search..."
                 size="small"

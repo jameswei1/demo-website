@@ -10,11 +10,17 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import { Checkbox } from '@mui/material';
 
-export default function Payee({ payee, deleteHandler, editHandler }) {
+export default function Payee({ payee, deleteHandler, editHandler, selectHandler }) {
   const [openDelete, setOpenDelete] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
   const [newName, setNewName] = useState(""); 
+  // const [newlySelected, setNewlySelected] = useState("");
+
+  const handleChange = (event) => {
+    selectHandler(payee, event.target.value)
+  };
 
   function handleDeleteOpen() {
     setOpenDelete(true)
@@ -58,6 +64,7 @@ export default function Payee({ payee, deleteHandler, editHandler }) {
           </>
         }
       >
+        <Checkbox onChange={handleChange}/>
         {payee}
       </ListItem>
       <Dialog open={openDelete} onClose={handleDeleteClose}>

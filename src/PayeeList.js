@@ -9,13 +9,13 @@ import IconButton from '@mui/material/IconButton';
 import { useState } from 'react';
 import Payee from './Payee';
 
-export default function PayeeList({ payees, deleteHandler, editHandler }) {
+export default function PayeeList({ payees, deleteHandler, editHandler, selectHandler }) {
     const [checked, setChecked] = useState([]);
 
     return (
         <List sx={{ width: '100%', bgcolor: '#cfe8fc' }}>
             {payees.map(p => (
-                <Payee payee={p} deleteHandler={deleteHandler} editHandler={editHandler}/>
+                <Payee payee={p} deleteHandler={deleteHandler} editHandler={editHandler} selectHandler={selectHandler}/>
             ))}
         </List>
     )
