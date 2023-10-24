@@ -10,10 +10,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import axios from 'axios';
 
-
-export default function Payee({ payee }) {
+export default function Payee({ payee, deleteHandler }) {
   const [openDelete, setOpenDelete] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
 
@@ -27,8 +25,9 @@ export default function Payee({ payee }) {
 
   function handleDelete() {
     // axios.delete('https://pokeapi.co/api/v2/pokemon/'+payee)
-    console.log('https://pokeapi.co/api/v2/pokemon/'+payee)
-
+    console.log('axios.delete(https://pokeapi.co/api/v2/pokemon/'+payee+')')
+    deleteHandler(payee)
+    setOpenDelete(false)
   }
 
   function handleEdit() {

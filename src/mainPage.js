@@ -13,10 +13,6 @@ export default function MainPage() {
   const [displayedPayees, setDisplayedPayees] = useState(payees);
   const [searchQuery, setSearchQuery] = useState("");
 
-  function findPayee(payee, query) {
-    return payee.toLowerCase().includes(query)
-  }
-
   useEffect(() => {
     axios
     .get('https://pokeapi.co/api/v2/pokemon')
@@ -39,11 +35,18 @@ export default function MainPage() {
     }
   }, [searchQuery])
 
+  function removePayee(payee) {
+    const index = payees.indexOf(payee)
+    let payeesCopy = [...payees]
+    payeesCopy.splice(index, 1)
+    setPayees(payeesCopy)
+  }
+
   return (
     <Container maxWidth="md">
       <Box sx={{ bgcolor: '#cfe8fc', height: '100vh', border: 'solid'}}>
         <SearchBar setSearchQuery={setSearchQuery}/>
-        <PayeeList payees={displayedPayees}/>
+        <PayeeList payees={displayedPayees} deleteHandler={removePayee}/>
         
       </Box>
     </Container>

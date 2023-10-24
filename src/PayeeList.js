@@ -9,26 +9,21 @@ import IconButton from '@mui/material/IconButton';
 import { useState } from 'react';
 import Payee from './Payee';
 
-export default function PayeeList({ payees }) {
-    const [count, setCount] = useState(0);
+export default function PayeeList({ payees, deleteHandler }) {
     const [checked, setChecked] = useState([]);
 
     function handleToggle() {
         console.log("Toggled")
     }
 
-    let countCopy = count
-
     return (
         <List sx={{ width: '100%', bgcolor: '#cfe8fc' }}>
             {payees.map(p => (
-                <Payee payee={p}/>
+                <Payee payee={p} deleteHandler={deleteHandler}/>
+                
             // <div key={p}>{p}</div>
             ))}
         </List>
-        // <div className='center'>
-
-        // </div>
     )
 }
 
