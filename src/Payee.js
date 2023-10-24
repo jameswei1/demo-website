@@ -11,9 +11,10 @@ import DialogContentText from '@mui/material/DialogContentText';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
-export default function Payee({ payee, deleteHandler }) {
+export default function Payee({ payee, deleteHandler, editHandler }) {
   const [openDelete, setOpenDelete] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
+  const [newName, setNewName] = useState(""); 
 
   function handleDeleteOpen() {
     setOpenDelete(true)
@@ -24,14 +25,14 @@ export default function Payee({ payee, deleteHandler }) {
   }
 
   function handleDelete() {
-    // axios.delete('https://pokeapi.co/api/v2/pokemon/'+payee)
     console.log('axios.delete(https://pokeapi.co/api/v2/pokemon/'+payee+')')
     deleteHandler(payee)
     setOpenDelete(false)
   }
 
   function handleEdit() {
-    payee = "james"
+    console.log('axios.post(https://pokeapi.co/api/v2/pokemon/'+payee+', {name: '+newName+'})')
+    editHandler(payee, newName)
     setOpenEdit(false)
   }
 
@@ -82,6 +83,9 @@ export default function Payee({ payee, deleteHandler }) {
             label="Name"
             fullWidth
             variant="standard"
+            onChange={(e) => {
+              setNewName(e.target.value)
+            }}
           />
           <Button onClick={handleEdit}>Done</Button>
           <Button onClick={handleEditClose}>Cancel</Button>

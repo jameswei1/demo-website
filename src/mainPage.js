@@ -42,12 +42,18 @@ export default function MainPage() {
     setPayees(payeesCopy)
   }
 
+  function editPayee(payee, newName) {
+    let payeesCopy = [...payees]
+    const index = payeesCopy.indexOf(payee)
+    payeesCopy[index] = newName
+    setPayees(payeesCopy)
+  }
+
   return (
     <Container maxWidth="md">
       <Box sx={{ bgcolor: '#cfe8fc', height: '100vh', border: 'solid'}}>
         <SearchBar setSearchQuery={setSearchQuery}/>
-        <PayeeList payees={displayedPayees} deleteHandler={removePayee}/>
-        
+        <PayeeList payees={displayedPayees} deleteHandler={removePayee} editHandler={editPayee}/>
       </Box>
     </Container>
   );
