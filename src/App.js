@@ -1,4 +1,4 @@
-import logo from './rbc.svg';
+import logo from './flipp.png';
 import './App.css';
 import Ribbon from './Ribbon';
 import MainPage from './mainPage';

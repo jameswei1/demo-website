@@ -8,7 +8,7 @@ export default function Ribbon() {
         <AppBar position='static'>
             <Toolbar display="flex" justifyContent="flex-end">
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} paddingLeft={2}>
-                    Full Name Here
+                    James Wei - Flipp Takehome Assessment
                 </Typography>
                 <Button variant='contained'>Logout</Button>
             </Toolbar>
